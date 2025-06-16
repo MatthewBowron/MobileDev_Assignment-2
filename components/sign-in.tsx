@@ -1,5 +1,6 @@
+"use client"
 import { FunctionComponent, useEffect, useState } from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, TextInput } from "react-native";
 
 interface Props { 
     navigate: ()=>void; 
@@ -19,22 +20,67 @@ const SignIn: FunctionComponent<Props> = ({navigate}) => {
     
   const handleSubmit = () => {
     errorMessages[2] = ""
-    navigate() // navigate one credentials verified
+    navigate() // navigate once credentials verified
   }
     
     return(
+      <View style={styles.container}>
+        <Text style={styles.header}>Sign In to App</Text>
+
+        <TextInput 
+          style={styles.input}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
+        />
+        <Text style={styles.errorMssg}>{errorMessages[0]}</Text>
+        <TextInput 
+          style={styles.input}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Text style={styles.errorMssg}>{errorMessages[1]}</Text>
+
         <TouchableOpacity onPress={handleSubmit}>
             <Text style={styles.button}>Submit</Text>
         </TouchableOpacity>
+        <Text style={styles.errorMssg}>{errorMessages[2]}</Text>
+      </View>
     )
 }
 
 const styles = StyleSheet.create({
-  button: {
-    fontSize: 20,
-    padding: 5,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    color: '#26D',
+    fontSize: 24,
+    marginBottom: 25,
+  },
+  input: {
+    width: 250,
+    fontSize: 18,
+    padding: 8,
     margin: 5,
     borderWidth: 1,
+  },
+  errorMssg: {
+    color: '#B22',
+    marginBottom: 10,
+  },
+  button: {
+    fontSize: 20,
+    paddingHorizontal: 25,
+    paddingVertical: 8,
+    margin: 5,
+    borderRadius: 15,
+    backgroundColor: '#28E',
+    color: '#FFF',
   }
 });
 export default SignIn;
