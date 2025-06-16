@@ -1,6 +1,7 @@
 "use client"
 import { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, View, TextInput } from "react-native";
+import  handleSignIn  from "./sign-inFactory";
 
 interface Props { 
     navigate: ()=>void; 
@@ -17,11 +18,23 @@ const SignIn: FunctionComponent<Props> = ({navigate}) => {
   useEffect(() => {
     errorMessages[1] = "";
   }, [password]) // Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.
-    
-  const handleSubmit = () => {
-    errorMessages[2] = ""
-    navigate() // navigate once credentials verified
+ 
+  const cleanUp = () => {
+    setUsername("");
+    setPassword("");
   }
+
+  const handleSubmit = () => {
+    if (handleSignIn(username, password)) {
+      navigate();
+    }
+    else {
+      cleanUp();
+      alert("Invalid username or password. Please try again.");
+    }
+
+  }
+
     
     return(
       <View style={styles.container}>
@@ -83,4 +96,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
   }
 });
+
 export default SignIn;
