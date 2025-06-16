@@ -1,8 +1,8 @@
 import { router } from 'expo-router'; 
 import SignIn from '../components/sign-in';
 
-export default function App() {
+export default function LandingPage() {
   return (
-    <SignIn navigate={()=>router.push("/tabs/index")} />
+    <SignIn navigate={()=>router.push("/(tabs)/")} />
   );
 }
