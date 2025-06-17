@@ -1,7 +1,7 @@
 "use client"
 import { FunctionComponent, useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, View, TextInput } from "react-native";
-import  validateSignIn  from "./sign-inFactory";
+import  validateSignIn  from "./validateSign-in";
 
 interface Props { 
     navigate: ()=>void; 
@@ -33,7 +33,6 @@ const SignIn: FunctionComponent<Props> = ({navigate}) => {
     }
     else {
       cleanUp(); // cleans up the input fields
-      alert("Invalid username or password. Please try again.");
     }
   }
 
