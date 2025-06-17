@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Welcome to My City App</Text>
+      <Text style={{ fontSize: 30 }}>Welcome to My New App</Text>
     </View>
   );
 }
@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+
+    justifyContent: 'flex-start',
+    paddingTop:100
   },
 });
