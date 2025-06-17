@@ -1,14 +1,19 @@
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
-export default function CityInfo({ city }: { city: string }) {
-  const facts: Record<string, string> = {
-    Calgary: "Calgary is the third most diverse major city in Canada with more than 120 languages spoken in the city and Calgary has the sunniest days all year round in Canada.",
-    Vancouver: "Vancouver Is Called the “Hollywood of the North” and the cosmetic treatment Botox was invented in Vancouver",
-  };
+export default function CityInfo({ text }: { text: string }) {
 
   return (
-    <Text style={{ marginTop: 10, fontSize: 14 }}>
-      {facts[city] || "Interesting facts coming soon!"}
+    <Text style={styles.text}>
+      {text || "Interesting facts coming soon!"}
     </Text>
   );
 }
+
+const styles = StyleSheet.create({
+  text: {
+    marginTop: 10,
+    marginHorizontal: 20, 
+    fontSize: 14,
+    lineHeight: 25,
+  }
+});

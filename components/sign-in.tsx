@@ -34,7 +34,7 @@ const SignIn: FunctionComponent<Props> = ({navigate}) => {
     }else if(!passwordRegex.test(password.trim())){
       setErrorMessage3("Incorrect password format.");
     }else{
-      setErrorMessage3("Username not found..");
+      setErrorMessage3("Username not found.");
       for (let user of users.users) {
         if (user.username == username) {
           if(user.password == password){
