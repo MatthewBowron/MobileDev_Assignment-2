@@ -1,5 +1,5 @@
 import { router } from 'expo-router'; 
-import SignIn from '../components/signIn/sign-in';
+import SignIn from '../components/sign-in';
 
 export default function LandingPage() {
   return (
