@@ -6,7 +6,7 @@ export default function Calgary() {
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ fontSize: 30 }}>Calgary</Text>
-      <Image source={require('../../assets/calgary.jpeg')} style={{ height: 200, width: 200, marginTop: 20 }} />
+      <Image source={require('../../assets/calgary.jpeg')} style={{ height: 400, width: 600, marginTop: 20 }} />
       
       <CityLink cityName="Calgary" url="https://www.calgary.ca/home.html" />
       <CityInfo city="Calgary" />
